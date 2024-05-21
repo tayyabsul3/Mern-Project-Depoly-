@@ -8,12 +8,12 @@ const userRouter = require("./routes/users.js");
 
 const server = express();
 server.use(cors());
-server.use(express.static("public/dist"));
+server.use(express.static("public"));
 server.use(express.json());
 server.use("/products", productRouter.router);
 server.use("/users", userRouter.router);
 server.use("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public/dist/index.html"));
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
 });
 
 async function main() {

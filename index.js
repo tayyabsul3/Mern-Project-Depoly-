@@ -8,7 +8,7 @@ const userRouter = require("./routes/users.js");
 
 const server = express();
 server.use(cors());
-server.use(express.static("public"));
+server.use(express.static(path.resolve(__dirname, "public")));
 server.use(express.json());
 server.use("/products", productRouter.router);
 server.use("/users", userRouter.router);
